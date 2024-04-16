@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo apt update && sudo apt install -y wget ripgrep bat zsh vim-gtk3 \
-    libfuse2 curl xterm git openssh-client openssh-server
+    libfuse2 curl xterm git openssh-client openssh-server tig
 
 # change the apt source if using Debian
 if [[ -n $(cat /etc/*-release | grep -i "name.*debian") ]]; then

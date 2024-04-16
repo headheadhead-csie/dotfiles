@@ -1,0 +1,8 @@
+[user]
+    name = headheadhead-csie
+    email = b08902062@csie.ntu.edu.tw
+[core]
+    editor = vim
+    whitespace = trailing-space,space-before-tab
+[url "git@github.com:headheadhead-csie"]
+    insteadOf = https://github.com/headheadhead-csie/
