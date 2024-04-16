@@ -1,2 +1,2 @@
-#!/bin/sh
+#!/bin/bash
 sudo chsh -s /bin/zsh $USER
