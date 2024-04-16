@@ -1,1 +1,3 @@
-install-build-lib.sh
+README.md
+scripts/
+scripts/*

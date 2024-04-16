@@ -21,7 +21,6 @@ Plugin 'vim-python/python-syntax'
 Plugin 'morhetz/gruvbox'
 Plugin 'sheerun/vim-polyglot'
 Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/taglist.vim'
 Plugin 'sonph/onehalf', { 'rtp': 'vim' }
 Plugin 'sainnhe/gruvbox-material'
 Plugin 'justinmk/vim-syntax-extra'
@@ -83,15 +82,15 @@ set expandtab
 set smartindent
 set splitbelow
 set splitright
- " ctags optimization
-set tags=tags;
+" ctags optimization
+" set tags=tags;
 set foldmethod=indent
 set foldignore=''
 set wildmenu
-let Tlist_Display_Prototype = 1
-let Tlist_Close_On_Select = 1
-nnoremap ss : Tlist <bar> TlistAddFiles * <CR>
-nnoremap <F10> : !ctags -R * <CR>
+" let Tlist_Display_Prototype = 1
+" let Tlist_Close_On_Select = 1
+" nnoremap ss : Tlist <bar> TlistAddFiles * <CR>
+" nnoremap <F10> : !ctags -R * <CR>
 "============end of general setting
 
 "============ColorTheme
