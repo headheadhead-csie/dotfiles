@@ -1,1 +1,1 @@
-run_once_after_install-build-lib.sh
+install-build-lib.sh
