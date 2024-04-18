@@ -9,9 +9,3 @@ if [[ -n $(cat /etc/*-release | grep -i "name.*debian") ]]; then
     sed -i "s/deb.debian.org/debian.csie.ntu.edu.tw/g" /etc/apt/mirrors/debian.list
     sed -i "s/deb.debian.org/debian.csie.ntu.edu.tw/g" /etc/apt/mirrors/debian-security.list
 fi
-
-# setting the ssh server
-sudo dpkg-reconfigure openssh-server
-if [[ ! -f ~/.ssh/id_rsa ]]; then
-    ssh-keygen
-fi

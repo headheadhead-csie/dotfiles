@@ -2,4 +2,6 @@
 
 # setting the ssh server
 sudo dpkg-reconfigure openssh-server
-ssh-keygen
+if [[ ! -f ~/.ssh/id_rsa ]]; then
+    ssh-keygen
+fi
