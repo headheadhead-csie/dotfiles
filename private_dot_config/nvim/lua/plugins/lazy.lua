@@ -15,7 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     -- vim plugins
     "tpope/vim-fugitive",
-    "junegunn/gv.vim",
     "rbong/vim-flog",
     "tpope/vim-unimpaired",
     "sickill/vim-monokai",
@@ -25,7 +24,6 @@ require("lazy").setup({
     "morhetz/gruvbox",
     "sheerun/vim-polyglot",
     "tpope/vim-surround",
-    "vim-scripts/taglist.vim",
     "sainnhe/gruvbox-material",
     "justinmk/vim-syntax-extra",
     "w0ng/vim-hybrid",
