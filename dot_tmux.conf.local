@@ -406,3 +406,30 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 #
 # "$@"
 # # /!\ do not remove the previous line
+set -g mouse on
+unbind C-b
+set-option -g prefix C-x
+unbind C-h
+unbind C-l
+bind -r C-h resize-pane -L 2
+bind -r C-j resize-pane -D 2
+bind -r C-k resize-pane -U 2
+bind -r C-l resize-pane -R 2
+bind c new-window -c '#{pane_current_path}'
+bind | split-window -h -c '#{pane_current_path}'
+bind - split-window -v -c '#{pane_current_path}'
+unbind '"'
+unbind %
+# bind H resize-pane -R 50
+set-option -g renumber-windows on
+# set -g default-terminal "screen-256color"
+# set -g default-terminal "tmux-256color"
+# set -ga terminal-overrides ",xterm*:Tc"
+set -as terminal-features ",xterm-256color:RGB"
+set -g @resurrect-hook-post-save-all 'sed -i "s/\/tmp.*nvim/nvim/" ~/.local/share/tmux/resurrect/last'
+bind-key -n Home send Escape "OH"
+bind-key -n End send Escape "OF"
+set -s set-clipboard on
+bind -r n previous-window # select previous window
+unbind p
+bind -r p next-window     # select next window

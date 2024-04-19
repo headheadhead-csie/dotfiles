@@ -26,3 +26,8 @@
     url = "https://github.com/VundleVim/Vundle.vim/archive/master.tar.gz"
     exact = true
     stripComponents = 1
+[".tmux/plugins/tpm"]
+    type = "archive"
+    url = "https://github.com/tmux-plugins/tpm/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
