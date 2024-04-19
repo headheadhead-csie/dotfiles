@@ -423,9 +423,9 @@ unbind %
 # bind H resize-pane -R 50
 set-option -g renumber-windows on
 # set -g default-terminal "screen-256color"
-# set -g default-terminal "tmux-256color"
+set -g default-terminal "tmux-256color"
 # set -ga terminal-overrides ",xterm*:Tc"
-set -as terminal-features ",xterm-256color:RGB"
+set -ag terminal-overrides ",xterm-256color:RGB"
 set -g @resurrect-hook-post-save-all 'sed -i "s/\/tmp.*nvim/nvim/" ~/.local/share/tmux/resurrect/last'
 bind-key -n Home send Escape "OH"
 bind-key -n End send Escape "OF"
