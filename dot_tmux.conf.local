@@ -20,7 +20,7 @@
 # new window retains current path, possible values are:
 #   - true
 #   - false (default)
-tmux_conf_new_window_retain_current_path=false
+tmux_conf_new_window_retain_current_path=true
 
 # new pane retains current path, possible values are:
 #   - true (default)
@@ -375,7 +375,7 @@ tmux_conf_update_plugins_on_reload=true
 #set -g @plugin 'tmux-plugins/tmux-copycat'
 #set -g @plugin 'tmux-plugins/tmux-cpu'
 #set -g @continuum-restore 'on'
-set -g @plugin 'tmux-plugins/tmux-resurrect'
+# set -g @plugin 'tmux-plugins/tmux-resurrect'
 #set -g @plugin 'tmux-plugins/tmux-continuum'
 #set -g @plugin 'dracula/tmux'
 #set -g @dracula-show-powerline true
@@ -422,16 +422,11 @@ bind -r C-k resize-pane -U 2
 bind -r C-l resize-pane -R 2
 
 # split pane in current path
-unbind c
 unbind |
 unbind -
-unbind '"'
-unbind %
-bind c new-window -c '#{pane_current_path}'
-bind | split-window -h -c '#{pane_current_path}'
-bind - split-window -v -c '#{pane_current_path}'
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
 
-# bind H resize-pane -R 50
 set-option -g renumber-windows on
 # set -g default-terminal "screen-256color"
 set -g default-terminal "tmux-256color"
@@ -441,6 +436,7 @@ set -g @resurrect-hook-post-save-all 'sed -i "s/\/tmp.*nvim/nvim/" ~/.local/shar
 bind-key -n Home send Escape "OH"
 bind-key -n End send Escape "OF"
 set -s set-clipboard on
-bind -r n previous-window # select previous window
+unbind n
 unbind p
+bind -r n previous-window # select previous window
 bind -r p next-window     # select next window
