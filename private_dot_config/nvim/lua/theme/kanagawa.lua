@@ -1,10 +1,13 @@
 require("kanagawa").setup({
     colors = {
         theme = {
-            all = {
+            wave = {
                 ui = {
                     bg_gutter = "#1F1F28",
-                }
+                },
+                syn = {
+                    parameter = "#FFA066",
+                },
             }
         }
     },
