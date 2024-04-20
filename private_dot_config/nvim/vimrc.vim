@@ -26,7 +26,7 @@ set wildmenu
 set laststatus=3
 map <Space> <Leader>
 nnoremap <silent><Leader>G :tab G<CR>
-nnoremap <silent><c-t> :tabnew %<CR>
+nnoremap <silent><c-t> :$tabnew %<CR>
 nnoremap <silent><c-o> <C-O>:noh<CR>
 "============end of general setting
 
