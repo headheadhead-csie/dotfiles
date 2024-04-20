@@ -409,6 +409,7 @@ tmux_conf_update_plugins_on_reload=true
 set -g mouse on
 
 # change the prefix
+set -gu prefix2
 unbind C-b
 unbind C-a
 set-option -g prefix C-x
