@@ -408,6 +408,7 @@ set -g @plugin 'tmux-plugins/tmux-resurrect'
 # # /!\ do not remove the previous line
 set -g mouse on
 unbind C-b
+unbind C-a
 set-option -g prefix C-x
 unbind C-h
 unbind C-l
