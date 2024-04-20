@@ -49,7 +49,8 @@ set cursorline
 set shortmess+=S
 autocmd InsertEnter * :match none "highlight trailing white space
 autocmd BufEnter,InsertLeave * :match curSearch /\s\+$/ "highlight trailing white space
-autocmd BufEnter {} :match none "highlight trailing white space
+autocmd BufEnter {} :match none
+autocmd BufEnter {} :set nu
 
 "============mouse setting
 "set ttymouse=xterm2
