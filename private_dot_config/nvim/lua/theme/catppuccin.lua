@@ -60,6 +60,7 @@ require("catppuccin").setup({
         treesitter = true,
         notify = false,
         mini = false,
+        rainbow_delimiters = true,
         -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
     },
 })

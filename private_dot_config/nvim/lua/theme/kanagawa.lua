@@ -13,6 +13,7 @@ require("kanagawa").setup({
     },
     overrides = function(colors)
         local theme = colors.theme
+        local palette = colors.palette
         return {
             LineNr = { bg = theme.ui.bg },
             Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 },
@@ -20,6 +21,13 @@ require("kanagawa").setup({
             PmenuSbar = { bg = theme.ui.bg_m1 },
             PmenuThumb = { bg = theme.ui.bg_p2 },
             NormalFloat = { bg = theme.ui.bg },
+            RainbowDelimiterRed = { fg = palette.waveRed },
+            RainbowDelimiterYellow = { fg = palette.carpYellow },
+            RainbowDelimiterBlue = { fg = palette.springBlue },
+            RainbowDelimiterOrange = { fg = palette.surimiOrange },
+            RainbowDelimiterGreen = { fg = palette.springGreen },
+            RainbowDelimiterViolet = { fg = palette.oniViolet },
+            RainbowDelimiterCyan = { fg = palette.crystalBlue },
         }
     end
 })
