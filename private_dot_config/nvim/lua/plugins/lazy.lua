@@ -200,7 +200,8 @@ require("lazy").setup({
         cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
-    }
+    },
+    "klen/nvim-config-local",
     -- "rainbowhxch/beacon.nvim",
 })
 require('colorizer').setup()
