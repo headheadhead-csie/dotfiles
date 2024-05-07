@@ -1,8 +1,0 @@
-require("editor.smart_split")
-require("editor.telescope")
-require("editor.gitsigns")
-require("editor.todo")
-require("editor.harpoon")
-require("editor.marks")
-require("editor.hop")
-require("editor.ibl")

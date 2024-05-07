@@ -66,10 +66,10 @@ au BufNewFile,BufRead *.s,*.S set filetype=arm " arm = armv6/7
 "==========lvimrc
 let g:localvimrc_sandbox = 0
 let g:localvimrc_ask = 0
-let g:localvimrc_name = [".nvim.lua"]
 let g:localvimrc_debug = 1
 let g:localvimrc_sourced_once = 1
 let g:localvimrc_sourced_once_for_file = 1
+"let g:localvimrc_name = [".nvim.lua"]
 
 "==========hard mode
 "for key in ['<Up>', '<Down>', '<Left>', '<Right>', '<PageUp>', '<PageDown>', '<Home>', '<End>']
