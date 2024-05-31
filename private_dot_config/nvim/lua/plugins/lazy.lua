@@ -192,6 +192,7 @@ require("lazy").setup({
         config = function()
             require("persisted").setup({
                 autoload = true,
+                follow_cwd = false,
             })
         end
     },
