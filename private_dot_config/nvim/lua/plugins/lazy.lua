@@ -70,7 +70,6 @@ require("lazy").setup({
     "nvim-lua/plenary.nvim",
     {
         "folke/trouble.nvim",
-        branch = "dev",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
             focus = true,
