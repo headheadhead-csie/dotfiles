@@ -4,5 +4,5 @@
 [core]
     editor = vim
     whitespace = trailing-space,space-before-tab
-[url "git@github.com:headheadhead-csie"]
+[url "git@github.com:headheadhead-csie/"]
     insteadOf = https://github.com/headheadhead-csie/
