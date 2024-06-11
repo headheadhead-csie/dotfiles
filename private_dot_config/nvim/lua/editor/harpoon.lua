@@ -11,6 +11,7 @@ harpoon:setup({
 -- REQUIRED
 -- basic telescope configuration
 vim.keymap.set("n", "<leader>A", function() harpoon.ui:toggle_quick_menu(harpoon:list(), { border = "rounded" }) end)
+-- vim.keymap.set("n", "<leader>a", function() harpoon:list():add() end)
 
 vim.keymap.set("n", "<leader>1", function() harpoon:list():select(1) end)
 vim.keymap.set("n", "<leader>2", function() harpoon:list():select(2) end)
@@ -46,17 +47,14 @@ vim.keymap.set("n", "<leader>a", function()
     local item = list.config.create_list_item(list.config)
     local Extensions = require("harpoon.extensions")
     local old_index = index_of(list.items, item, list.config)
-    if old_index ~= -1 then
-        list:removeAt(old_index)
-    end
     local index = vim.fn.tabpagenr()
     if old_index ~= index then
-        list:removeAt(index)
+        list:replace_at(index)
+        return list
     end
     Extensions.extensions:emit(
         Extensions.event_names.ADD,
-        { list = list, item = item, idx = #list.items + 1 }
+        { list = list, item = item, idx = list._length + 1 }
     )
-    table.insert(list.items, index, item)
+    return list
 end)
-
