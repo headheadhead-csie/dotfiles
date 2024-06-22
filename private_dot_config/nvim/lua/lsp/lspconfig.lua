@@ -11,7 +11,7 @@ lspconfig.clangd.setup({
 }})
 lspconfig.rust_analyzer.setup({
     settings = {
-        ["rust_analyzer"] = {
+        ["rust-analyzer"] = {
             completion = {
                 autoimport = {
                     enable = false
