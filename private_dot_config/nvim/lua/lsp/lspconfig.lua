@@ -1,14 +1,25 @@
 local lspconfig = require("lspconfig")
-lspconfig.clangd.setup({ cmd = {
-    "clangd",
-    "--rename-file-limit",
-    "10000",
-    "-j",
-    "24",
-    "--header-insertion=never",
-    "--offset-encoding=utf-8",
+lspconfig.clangd.setup({
+    cmd = {
+        "clangd",
+        "--rename-file-limit",
+        "10000",
+        "-j",
+        "24",
+        "--header-insertion=never",
+        "--offset-encoding=utf-8",
 }})
-lspconfig.rust_analyzer.setup({ })
+lspconfig.rust_analyzer.setup({
+    settings = {
+        ["rust_analyzer"] = {
+            completion = {
+                autoimport = {
+                    enable = false
+                }
+            }
+        }
+    }
+})
 lspconfig.tsserver.setup({ })
 lspconfig.jedi_language_server.setup({ })
 lspconfig.lua_ls.setup({ })
