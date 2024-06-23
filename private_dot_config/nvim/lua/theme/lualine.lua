@@ -1,4 +1,4 @@
-local my_theme = {}
+local my_theme = "auto"
 if (current_theme == "catppuccin") then
   my_theme = require("catppuccin.utils.lualine")("mocha")
   local bg_color = "#1b1b2a"
