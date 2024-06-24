@@ -12,6 +12,7 @@ if (current_theme == "catppuccin") then
 elseif (current_theme == "kanagawa") then
   require("kanagawa").load("wave")
   local theme = require("kanagawa.colors").setup().theme
+  my_theme = {}
   my_theme.normal = {
     a = { bg = theme.syn.fun, fg = theme.ui.bg_m3 },
     b = { bg = theme.diff.change, fg = theme.syn.fun },
