@@ -2,6 +2,21 @@ local lsp = require('lsp-zero').preset({ autostart = true })
 
 function command_config()
     vim.keymap.set(
+        'n', 'gd',
+        '<cmd>lua vim.lsp.buf.definition()<CR>',
+        { silent = true, noremap = true, buffer = true }
+    )
+    vim.keymap.set(
+        'n', 'gD',
+        '<cmd>lua vim.lsp.buf.declaration()<CR>',
+        { silent = true, noremap = true, buffer = true }
+    )
+    vim.keymap.set(
+        'n', 'gi',
+        '<cmd>lua vim.lsp.buf.implementation()<CR>',
+        { silent = true, noremap = true, buffer = true }
+    )
+    vim.keymap.set(
         'n', 'go',
         '<cmd>Lspsaga outline<CR>',
         { silent = true, noremap = true, buffer = true }
@@ -73,15 +88,13 @@ function use_lspsaga()
 end
 
 local on_attach = function(_, bufnr)
-    lsp.default_keymaps({
-        buffer = bufnr,
-        preserve_mappings = true,
-    })
+    -- lsp.default_keymaps({
+    --     buffer = bufnr,
+    --     preserve_mappings = true,
+    -- })
 
     command_config()
-    -- use_builtin()
     use_trouble()
-    -- use_lspsaga()
 end
 
 lsp.on_attach(on_attach)
