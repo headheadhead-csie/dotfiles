@@ -1,4 +1,4 @@
-require("lsp.lsp_zero")
+require("lsp.lsp-zero")
 require("lsp.lspconfig")
 require("lsp.mason_lspconfig")
 require("lsp.cmp")

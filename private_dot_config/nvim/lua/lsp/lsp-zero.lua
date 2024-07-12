@@ -65,11 +65,7 @@ local lsp_on_attach = function(_, bufnr)
     use_trouble(bufnr)
 end
 
--- lsp.on_attach(lsp_on_attach)
-vim.api.nvim_create_autocmd("LspAttach", {
-    lsp.default_keymaps({
-    })
-})
+lsp.on_attach(lsp_on_attach)
 
 vim.diagnostic.config({
       virtual_text = false,
