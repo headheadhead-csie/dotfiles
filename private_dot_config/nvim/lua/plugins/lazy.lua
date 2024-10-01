@@ -201,7 +201,15 @@ require("lazy").setup({
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
-    "klen/nvim-config-local",
+    {
+        "klen/nvim-config-local",
+        config = function()
+            vim.api.nvim_create_autocmd("BufEnter", {
+                pattern = "*",
+                command = "ConfigLocalSource",
+            })
+        end
+    }
     -- "rainbowhxch/beacon.nvim",
 })
 require('colorizer').setup()
