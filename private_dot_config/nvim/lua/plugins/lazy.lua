@@ -204,10 +204,14 @@ require("lazy").setup({
     {
         "klen/nvim-config-local",
         config = function()
-            vim.api.nvim_create_autocmd("BufEnter", {
-                pattern = "*",
-                command = "ConfigLocalSource",
-            })
+                vim.api.nvim_create_autocmd("BufEnter", {
+                    pattern = "*",
+                    callback = function()
+                        if vim.fn.exists(":ConfigLocalSource") ~= 0 then
+                            vim.cmd("ConfigLocalSource")
+                        end
+                    end
+                })
         end
     }
     -- "rainbowhxch/beacon.nvim",
