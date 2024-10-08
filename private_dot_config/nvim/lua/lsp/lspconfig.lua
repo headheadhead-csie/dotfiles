@@ -17,7 +17,6 @@ lspconfig.rust_analyzer.setup({
                     enable = false
                 }
             },
-            numThreads = 8,
         }
     }
 })
