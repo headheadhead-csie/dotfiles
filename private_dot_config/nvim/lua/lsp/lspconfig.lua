@@ -16,7 +16,8 @@ lspconfig.rust_analyzer.setup({
                 autoimport = {
                     enable = false
                 }
-            }
+            },
+            numThreads = 8,
         }
     }
 })
