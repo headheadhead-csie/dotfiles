@@ -20,7 +20,7 @@ lspconfig.rust_analyzer.setup({
         }
     }
 })
-lspconfig.tsserver.setup({ })
+lspconfig.ts_ls.setup({ })
 lspconfig.jedi_language_server.setup({ })
 lspconfig.lua_ls.setup({ })
 vim.lsp.set_log_level("off")
