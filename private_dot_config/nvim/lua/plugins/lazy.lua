@@ -74,9 +74,7 @@ require("lazy").setup({
         opts = {
             focus = true,
             auto_refresh = false,
-            results = {
-                max_items = 5000,
-            },
+            max_items = 100000,
             keys = {
                 [ "j" ] = "next",
                 [ "k" ] = "prev",

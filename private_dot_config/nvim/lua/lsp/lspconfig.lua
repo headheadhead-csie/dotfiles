@@ -8,6 +8,8 @@ lspconfig.clangd.setup({
         "24",
         "--header-insertion=never",
         "--offset-encoding=utf-8",
+        "--limit-references=0",
+        "--limit-results=0",
 }})
 lspconfig.rust_analyzer.setup({
     settings = {
