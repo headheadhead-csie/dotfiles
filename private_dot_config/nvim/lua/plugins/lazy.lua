@@ -99,6 +99,7 @@ require("lazy").setup({
     "tiagovla/tokyodark.nvim",
     "marko-cerovac/material.nvim",
     "sam4llis/nvim-tundra",
+    { "rose-pine/neovim", name = "rose-pine" },
 
     -- editor
     -- treesitter
