@@ -28,3 +28,4 @@ export QT_DEBUG_PLUGINS=1
 export PATH=~/bin:$PATH
 export BAT_THEME=OneHalfDark
 export EDITOR="/usr/bin/vim.gtk3"
+export XDG_CONFIG_HOME="$HOME/.config"
