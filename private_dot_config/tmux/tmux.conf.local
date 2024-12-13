@@ -166,5 +166,5 @@ unbind p
 bind -r n next-window     # select next window
 bind -r p previous-window # select previous window
 
-source /home/headheadhead/.config/tmux/tmux.light.conf
-# source ~/.config/tmux/tmux.dark.conf
+# display-message "hi"
+source "$XDG_CONFIG_HOME/tmux/tmux.$THEME.conf"
