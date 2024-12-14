@@ -1,8 +1,8 @@
 require("rose-pine").setup({
     variant = "dawn", -- auto, main, moon, or dawn
     highlight_groups = {
-        ["@variable.parameter"] = { fg = "iris", italic = false },
-        ["@parameter"] = { fg = "iris", italic = false },
+        ["@variable.parameter"] = { fg = "iris", bold = true, italic = false },
+        ["@parameter"] = { fg = "iris", bold = true, italic = false },
 
         ["@variable"] = { italic = false },
         ["@variable.member"] = { fg = "subtle", italic = false },
