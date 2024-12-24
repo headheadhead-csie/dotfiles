@@ -5,8 +5,8 @@ require("rose-pine").setup({
         ["@parameter"] = { fg = "iris", bold = true, italic = false },
 
         ["@variable"] = { italic = false },
-        ["@variable.member"] = { fg = "subtle", italic = false },
-        ["@property"] = { fg = "subtle", italic = false },
+        ["@variable.member"] = { fg = "text", italic = false },
+        ["@property"] = { fg = "text", italic = false },
 
         ["@function"] = { italic = true },
         ["@keyword.return"] = { bold = true, },
