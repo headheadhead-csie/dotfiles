@@ -80,7 +80,14 @@ require("lazy").setup({
                 [ "k" ] = "prev",
                 [ "o" ] = "jump",
                 [ "<cr>" ] = "jump_close",
-            }
+            },
+            modes = {
+                lsp_base = {
+                    params = {
+                        include_current = true,
+                    },
+                },
+            },
         },
     },
     'kevinhwang91/nvim-bqf',
