@@ -25,8 +25,9 @@
     exact = true
     refreshPeriod = "168h"
 ["bin/fzf"]
-    type = "archive"
+    type = "archive-file"
     url = "https://github.com/junegunn/fzf/releases/download/v0.61.0/fzf-0.61.0-linux_amd64.tar.gz"
     exact = true
     refreshPeriod = "168h"
     executable = true
+    path = "fzf"
