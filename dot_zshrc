@@ -121,3 +121,5 @@ bindkey "^[OH" beginning-of-line
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source ~/.p10k-$THEME.zsh
+
+source <(fzf --zsh)

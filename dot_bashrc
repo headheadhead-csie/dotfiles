@@ -122,3 +122,4 @@ source ~/.shrc
 
 # Created by `pipx` on 2023-04-04 02:33:01
 export PATH="$PATH:/home/headheadhead/.local/bin"
+eval "$(fzf --bash)"
