@@ -1,5 +1,42 @@
-local lsp = require('lsp-zero').preset({ autostart = true })
+--[[
+    Make sure you have these plugins installed:
+    * neovim/nvim-lspconfig
+    * williamboman/mason.nvim
+    * williamboman/mason-lspconfig.nvim
+    * hrsh7th/nvim-cmp
+    * hrsh7th/cmp-nvim-lsp
+    * L3MON4D3/LuaSnip
+]]
+-- Reserve a space in the gutter
+-- This will avoid an annoying layout shift in the screen
+vim.opt.signcolumn = 'yes'
 
+-- Add borders to floating windows
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+    vim.lsp.handlers.hover,
+    {border = 'rounded'}
+)
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+    vim.lsp.handlers.signature_help,
+    {border = 'rounded'}
+)
+
+-- Add cmp_nvim_lsp capabilities settings to lspconfig
+-- This should be executed before you configure any language server
+local lspconfig_defaults = require('lspconfig').util.default_config
+lspconfig_defaults.capabilities = vim.tbl_deep_extend(
+    'force',
+    lspconfig_defaults.capabilities,
+    require('cmp_nvim_lsp').default_capabilities()
+)
+lspconfig_defaults.capabilities
+                  .textDocument
+                  .completion
+                  .completionItem
+                  .snippetSupport = false
+
+-- This is where you enable features that only work
+-- if there is a language server active in the file
 function command_config(buffer)
     vim.keymap.set(
         'n', 'go',
@@ -56,33 +93,43 @@ function use_lspsaga(buffer)
     vim.cmd("hi SagaBeacon guibg=#89dceb")
 end
 
-local lsp_on_attach = function(_, bufnr)
-    lsp.default_keymaps({
-        buffer = bufnr,
-        preserve_mappings = true,
-    })
-    command_config(bufnr)
-    use_trouble(bufnr)
-end
-
-lsp.on_attach(lsp_on_attach)
-
+vim.keymap.del('n', 'gO')
+vim.keymap.del('n', 'gri')
+vim.keymap.del('n', 'grr')
+vim.keymap.del('n', 'gra')
+vim.keymap.del('n', 'grn')
 vim.diagnostic.config({
       virtual_text = false,
 })
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(event)
+        local opts = {buffer = event.buf}
 
--- disable function snippets
-lsp.set_server_config({
-    capabilities = {
-        textDocument = {
-            completion = {
-                completionItem = {
-                    snippetSupport = false,
-                }
-            }
-        }
-    },
+        vim.keymap.set('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
+        vim.keymap.set('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
+        vim.keymap.set('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
+        vim.keymap.set('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+        vim.keymap.set('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
+        vim.keymap.set('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+        vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
+        vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
+        vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
+        vim.keymap.set({'n', 'x'}, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+        vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
+        command_config(event.buf)
+        use_trouble(event.buf)
+    end,
 })
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-lsp.setup()
+require('mason').setup({})
+local cmp = require('cmp')
+cmp.setup({
+    sources = {
+        {name = 'nvim_lsp'},
+    },
+    window = {
+        -- completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({}),
+})

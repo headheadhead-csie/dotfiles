@@ -39,7 +39,7 @@ require("lazy").setup({
     -- lsp
     {
         'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
+        branch = 'v4.x',
         dependencies = {
             -- LSP Support
             {'neovim/nvim-lspconfig'},  -- Required
@@ -52,6 +52,7 @@ require("lazy").setup({
             {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
             -- Autocompletion
+            {'onsails/lspkind.nvim'},
             {'hrsh7th/nvim-cmp'},         -- Required
             {'hrsh7th/cmp-nvim-lsp'},     -- Required
             {'L3MON4D3/LuaSnip'},         -- Required
@@ -59,7 +60,15 @@ require("lazy").setup({
     },
     {
         "ray-x/lsp_signature.nvim",
-        config = require("lsp.signature")
+        config = function()
+            require("lsp_signature").setup({
+                bind = true,
+                handler_opts = {
+                    border = "rounded",
+                },
+                hint_enable = false,
+            })
+        end
     },
     {
         "nvimdev/lspsaga.nvim",
@@ -82,6 +91,11 @@ require("lazy").setup({
                 [ "<cr>" ] = "jump_close",
             },
             modes = {
+                lsp_references = {
+                    params = {
+                        include_declaration = false,
+                    },
+                },
                 lsp_base = {
                     params = {
                         include_current = true,
@@ -132,7 +146,7 @@ require("lazy").setup({
     },
     "mrjones2014/smart-splits.nvim",
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.5',
+        'nvim-telescope/telescope.nvim', tag = '0.1.8',
         -- or                              , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },

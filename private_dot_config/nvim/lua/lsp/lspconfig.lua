@@ -10,7 +10,8 @@ lspconfig.clangd.setup({
         "--offset-encoding=utf-8",
         "--limit-references=0",
         "--limit-results=0",
-}})
+    },
+})
 lspconfig.rust_analyzer.setup({
     settings = {
         ["rust-analyzer"] = {
@@ -20,9 +21,10 @@ lspconfig.rust_analyzer.setup({
                 }
             },
         }
-    }
+    },
 })
 lspconfig.jedi_language_server.setup({ })
 lspconfig.lua_ls.setup({ })
 vim.lsp.set_log_level("off")
+vim.api.nvim_exec_autocmds("FileType", {})
 -- vim.lsp.set_log_level("debug")
