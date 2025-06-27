@@ -28,6 +28,7 @@ map <Space> <Leader>
 nnoremap <silent><Leader>G :tab G<CR>
 nnoremap <silent><c-t> :$tabnew %<CR>
 nnoremap <silent><c-o> <C-O>:noh<CR>
+filetype plugin on
 "============end of general setting
 
 "============ColorTheme

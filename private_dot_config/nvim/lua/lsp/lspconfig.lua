@@ -26,5 +26,7 @@ lspconfig.rust_analyzer.setup({
 lspconfig.jedi_language_server.setup({ })
 lspconfig.lua_ls.setup({ })
 vim.lsp.set_log_level("off")
-vim.api.nvim_exec_autocmds("FileType", {})
+if vim.bo.filetype ~= "norg" then
+    vim.api.nvim_exec_autocmds("FileType", {})
+end
 -- vim.lsp.set_log_level("debug")

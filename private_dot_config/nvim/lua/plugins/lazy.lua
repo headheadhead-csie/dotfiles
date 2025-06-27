@@ -22,7 +22,7 @@ require("lazy").setup({
     "agfline/c-syntax.vim",
     "vim-python/python-syntax",
     "morhetz/gruvbox",
-    "sheerun/vim-polyglot",
+    -- "sheerun/vim-polyglot",
     "tpope/vim-surround",
     "sainnhe/gruvbox-material",
     "justinmk/vim-syntax-extra",
@@ -222,6 +222,39 @@ require("lazy").setup({
         build = function() vim.fn["mkdp#util#install"]() end,
     },
     "klen/nvim-config-local",
+    {
+        "nvim-neorg/neorg",
+        build = ":Neorg sync-parsers",
+        tag = "v9.3.0",
+        opts = {
+            load = {
+                ["core.defaults"] = {}, -- Loads default behaviour
+                ["core.concealer"] = {}, -- Adds pretty icons to your documents
+                ["core.highlights"] = {}, -- Adds pretty icons to your documents
+                ["core.dirman"] = { -- Manages Neorg workspaces
+                    config = {
+                        workspaces = {
+                            notes = "~/notes",
+                        },
+                        default_workspace = "notes",
+                    },
+                },
+            },
+        },
+        dependencies = {
+            { "nvim-lua/plenary.nvim", },
+            { "folke/tokyonight.nvim", config=function(_,_) vim.cmd.colorscheme "tokyonight-storm" end,},
+        },
+        {
+            'MeanderingProgrammer/render-markdown.nvim',
+            -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+            -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+            dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+            ---@module 'render-markdown'
+            ---@type render.md.UserConfig
+            opts = {},
+        },
+    },
     -- "rainbowhxch/beacon.nvim",
 })
 require('colorizer').setup()
