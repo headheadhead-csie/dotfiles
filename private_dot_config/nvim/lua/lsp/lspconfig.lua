@@ -1,5 +1,4 @@
-local lspconfig = require("lspconfig")
-lspconfig.clangd.setup({
+vim.lsp.config("clangd", {
     cmd = {
         "clangd",
         "--rename-file-limit",
@@ -12,7 +11,7 @@ lspconfig.clangd.setup({
         "--limit-results=0",
     },
 })
-lspconfig.rust_analyzer.setup({
+vim.lsp.config("rust_analyzer", {
     settings = {
         ["rust-analyzer"] = {
             completion = {
@@ -23,10 +22,11 @@ lspconfig.rust_analyzer.setup({
         }
     },
 })
-lspconfig.jedi_language_server.setup({ })
-lspconfig.lua_ls.setup({ })
+vim.lsp.config("jedi_language_server", { })
+vim.lsp.config("lua_ls", { })
 vim.lsp.set_log_level("off")
+vim.lsp.enable({"clangd", "rust_analyzer", "jedi_language_server", "lua_ls"})
 if vim.bo.filetype ~= "norg" then
-    vim.api.nvim_exec_autocmds("FileType", {})
+    -- vim.api.nvim_exec_autocmds("FileType", {})
 end
 -- vim.lsp.set_log_level("debug")
