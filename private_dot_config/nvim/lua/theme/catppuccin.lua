@@ -34,7 +34,7 @@ require("catppuccin").setup({
         mocha = {
             base = "#1b1b2a",
             overlay0 = "#56596b",
-            -- surface1 = "#222539",
+            surface1 = "#222539",
         }
     },
     highlight_overrides = {
@@ -42,6 +42,7 @@ require("catppuccin").setup({
             return {
                 -- builtin
                 Folded = { fg = mocha.overlay0, bg = "#222539" },
+                LineNr = { fg = mocha.overlay0 },
                 CursorLineNr = { fg = mocha.green, style = { "bold", "italic" } },
 
                 -- treesitter
