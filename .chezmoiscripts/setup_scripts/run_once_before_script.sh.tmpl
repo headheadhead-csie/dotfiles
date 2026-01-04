@@ -1,0 +1,28 @@
+{{ if eq .chezmoi.os "darwin" -}}
+# macos
+{{ else if eq .chezmoi.os "linux" -}}
+#!/bin/bash
+update_package() {
+    release=$(lsb_release -irc)
+    if [[ -n $(echo ${release} | grep -i "debian\|ubuntu") ]]; then
+        sudo apt update
+    elif [[ -n $(echo ${release} | grep -i fedora) ]]; then
+        sudo dnf update
+    fi
+}
+export -f update_package
+
+install_package() {
+    package=$1
+    release=$(lsb_release -irc)
+    if [[ -n $(echo ${release} | grep -i "debian\|ubuntu") ]]; then
+        sudo apt install -y $1
+    elif [[ -n $(echo ${release} | grep -i fedora) ]]; then
+        sudo dnf install -y $1
+    fi
+}
+export -f install_package
+
+bash {{ .chezmoi.sourceDir }}/scripts/run_once_before/change-shell.sh
+bash {{ .chezmoi.sourceDir }}/scripts/run_once_before/install-basic-packages.sh
+{{ end }}
