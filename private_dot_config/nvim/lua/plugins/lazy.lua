@@ -124,8 +124,7 @@ require("lazy").setup({
 
     -- editor
     -- treesitter
-    { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-    "nvim-treesitter/playground",
+    { "nvim-treesitter/nvim-treesitter", lazy = false, build = ":TSUpdate"},
     {
         "hiphish/rainbow-delimiters.nvim",
         config = require("theme.rainbow-delimiters"),
@@ -133,7 +132,21 @@ require("lazy").setup({
     "norcalli/nvim-colorizer.lua",
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
-        config = require("editor.ts_to")
+        branch = "main",
+        init = function()
+            -- Disable entire built-in ftplugin mappings to avoid conflicts.
+            -- See https://github.com/neovim/neovim/tree/master/runtime/ftplugin for built-in ftplugins.
+            vim.g.no_plugin_maps = true
+
+            -- Or, disable per filetype (add as you like)
+            -- vim.g.no_python_maps = true
+            -- vim.g.no_ruby_maps = true
+            -- vim.g.no_rust_maps = true
+            -- vim.g.no_go_maps = true
+        end,
+        config = function()
+            -- put your config here
+        end,
     },
     {
         'mrjones2014/legendary.nvim',
@@ -224,27 +237,9 @@ require("lazy").setup({
     "klen/nvim-config-local",
     {
         "nvim-neorg/neorg",
-        build = ":Neorg sync-parsers",
-        tag = "v9.3.0",
-        opts = {
-            load = {
-                ["core.defaults"] = {}, -- Loads default behaviour
-                ["core.concealer"] = {}, -- Adds pretty icons to your documents
-                ["core.highlights"] = {}, -- Adds pretty icons to your documents
-                ["core.dirman"] = { -- Manages Neorg workspaces
-                    config = {
-                        workspaces = {
-                            notes = "~/notes",
-                        },
-                        default_workspace = "notes",
-                    },
-                },
-            },
-        },
-        dependencies = {
-            { "nvim-lua/plenary.nvim", },
-            { "folke/tokyonight.nvim", config=function(_,_) vim.cmd.colorscheme "tokyonight-storm" end,},
-        },
+        lazy = false, -- Disable lazy loading as some `lazy.nvim` distributions set `lazy = true` by default
+        -- version = "*", -- Pin Neorg to the latest stable release
+        config = true,
     },
     {
         'MeanderingProgrammer/render-markdown.nvim',
