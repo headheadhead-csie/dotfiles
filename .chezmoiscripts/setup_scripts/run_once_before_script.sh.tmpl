@@ -25,4 +25,5 @@ export -f install_package
 
 bash {{ .chezmoi.sourceDir }}/scripts/run_once_before/change-shell.sh
 bash {{ .chezmoi.sourceDir }}/scripts/run_once_before/install-basic-packages.sh
+exit 0
 {{ end }}
