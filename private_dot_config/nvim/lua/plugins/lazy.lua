@@ -159,7 +159,7 @@ require("lazy").setup({
     },
     "mrjones2014/smart-splits.nvim",
     {
-        'nvim-telescope/telescope.nvim', tag = '0.1.8',
+        'nvim-telescope/telescope.nvim', tag = '*',
         -- or                              , branch = '0.1.x',
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
