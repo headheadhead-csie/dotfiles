@@ -67,6 +67,11 @@ end
 
 function use_trouble(buffer)
     vim.keymap.set(
+        'n', 'gd',
+        '<cmd>Trouble lsp_definitions<CR>',
+        { silent = true, noremap = true, buffer = buffer }
+    )
+    vim.keymap.set(
         'n', 'gr',
         '<cmd>Trouble lsp_references<CR>',
         { silent = true, noremap = true, buffer = buffer }
