@@ -22,10 +22,11 @@ vim.lsp.config("rust_analyzer", {
         }
     },
 })
-vim.lsp.config("jedi_language_server", { })
+vim.lsp.config("pylsp", { })
+vim.lsp.config("yamlls", { })
 vim.lsp.config("lua_ls", { })
 vim.lsp.set_log_level("off")
-vim.lsp.enable({"clangd", "rust_analyzer", "jedi_language_server", "lua_ls"})
+vim.lsp.enable({"clangd", "rust_analyzer", "pylsp", "lua_ls"})
 if vim.bo.filetype ~= "norg" then
     -- vim.api.nvim_exec_autocmds("FileType", {})
 end
